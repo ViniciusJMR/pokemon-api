@@ -1,17 +1,18 @@
-function SearchBar() {
+
+function SearchBar({search, setSearch}) {
+
+    const handleChange = e => {
+        e.preventDefault()
+        setSearch(e.target.value)
+    }
+
     return (
-        <form
-            action="/"
-            method="get"
-        >
-            <input
-                type="text"
-                className="search-input"
-                placeholder="Search Pokemon"
-                name="s"
-            />
-            <button type="submit" className="search-btn">OK</button>
-        </form>
+        <input
+            type="text"
+            placeholder="Search Pokemon"
+            onChange={handleChange}
+            value={search}
+        />
     )
 }
 

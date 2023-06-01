@@ -8,12 +8,13 @@ import { BASE_URL } from "../../utils/request";
 
 
 function PokemonList() {
-    // const [searchInput, setSearchInput] = useState("")
-    const [apiResp, setApiResp] = useState([])
-    const dataRef = useRef(false)
-    const pokemons = []
     const MAX_POKEMON_COUNT = 151
- 
+    const dataRef = useRef(false)
+
+    const [apiResp, setApiResp] = useState([])
+
+    const [search, setSearch] = useState("")
+
     useEffect(() => {
         // Evita que o código execute mais de uma vez na desenv
         //TODO: Analizar uma forma melhor de evitar que useeffect seja executado
@@ -22,29 +23,48 @@ function PokemonList() {
         dataRef.current = true
 
         axios.get(`${BASE_URL}/pokemon?limit=${MAX_POKEMON_COUNT}`)
-            .then(response =>{
-                // pokemons.push(response.data.results)
+            .then(response => {
                 setApiResp(response.data.results)
             })
             .catch(error => console.log(`Error: ${error}`))
     }, [])
 
+    let filteredResp = search.length > 0
+        ? apiResp.filter(p => p.name.toLowerCase().includes(search))
+        : []
+
+    console.log("montou...")
+
 
     return (
         <div className="flex-child">
-            <SearchBar />
-            <ul>
-                {
-                    apiResp.map((p) => {
-                        return (
-                            <li key={p.name}>
-                                <PokemonCard pokemon={p} />
-                            </li>
-                        )
-                    })
-                }
+            <SearchBar search={search} setSearch={setSearch} />
+            {search.length > 0 ? (
+                <ul>
+                    {filteredResp
+                        .map(p => {
+                            return (
+                                <li key={p.name}>
+                                    <PokemonCard pokemon={p} />
+                                </li>
+                            )
+                        })}
+                </ul>
 
-            </ul>
+            ) : (
+                <ul>
+                    {apiResp
+                        .map(p => {
+                            return (
+                                <li key={p.name}>
+                                    <PokemonCard pokemon={p} />
+                                </li>
+                            )
+                        })}
+                </ul>
+
+            )
+            }
         </div>
     )
 }

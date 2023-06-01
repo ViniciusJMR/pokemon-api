@@ -2,6 +2,10 @@ import axios from 'axios'
 import { useRef,useEffect, useState } from 'react'
 import { BASE_URL } from '../../../utils/request'
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function PokemonCard({pokemon}){
     const [info, setInfo] = useState({})
     const dataRef = useRef(false)
@@ -18,12 +22,13 @@ function PokemonCard({pokemon}){
             .catch(error => console.log(`Error: ${error}`))
 
     }, [])
+
     return (
         <>
             { 'id' in info &&
-                <div className='card-container'>
+                <div >
                     <img src={info.sprites.front_default} alt={info.name} />
-                    <h6/>{info.id}. {info.name}
+                    <h3>{capitalizeFirstLetter(info.name)}</h3>
                 </div>
             }
         </>
