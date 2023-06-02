@@ -1,4 +1,7 @@
 import capitalizeFirstLetter from "../../utils/stringUtils"
+import pathToPng from "../../utils/pathToPng"
+
+import './style.css'
 
 function PokemonInfo({ selected }) {
     return (
@@ -8,12 +11,25 @@ function PokemonInfo({ selected }) {
                     <h1>{capitalizeFirstLetter(selected.name)}</h1>
                     <h3>Pokedex index: {selected.id}</h3>
 
-                    <img src={selected.sprites.front_default} alt={selected.name} />
-                    <img src={selected.sprites.back_default} alt={selected.name} />
+                    <img 
+                    className="img-info"
+                    src={selected.sprites.front_default} 
+                    alt={selected.name} />
+                    <img 
+                    className="img-info"
+                    src={selected.sprites.back_default} 
+                    alt={selected.name} />
+                    <p/>
 
-                    <p>{selected.types.map((index) =>{
+                    {selected.types.map((index) => {
+                        return (
+                            <img className="type-info"
+                            src={pathToPng[index.type.name]} alt={index.type.name}/>
+                        )
+                    })}
+                    {/* <p>{selected.types.map((index) =>{
                         return `| ${capitalizeFirstLetter(index.type.name)} `
-                    })} |</p>
+                    })} |</p> */}
 
                     <p>Height: {selected.height / 10} m</p>
                     <p>Weight: {selected.weight / 10} Kg</p>

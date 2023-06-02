@@ -1,6 +1,6 @@
 .card {
   /* background-image: linear-gradient(-225deg, #7de2fc 0%, #b9b6e5 100%); */
-  width: 20rem;
+  width: 25rem;
   height: 10rem;
   box-sizing: border-box;
   padding: 2em;
@@ -17,12 +17,9 @@
   bottom: 7em;
 }
 
-.card-types {
+.type-card{
+  width: 15%;
   position: relative;
   left: 9.5rem;
-  bottom: 8.5em;
-  border: 1px solid black;
-  width: fit-content;
-  padding-left: 3px;
-  padding-right: 3px;
+  bottom: 8.5rem;
 }

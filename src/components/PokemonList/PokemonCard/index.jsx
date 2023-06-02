@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from 'react'
 import { BASE_URL } from '../../../utils/request'
 
 import capitalizeFirstLetter from '../../../utils/stringUtils'
+import pathToPng from '../../../utils/pathToPng'
 
 import style from './style.css'
 
@@ -26,6 +27,7 @@ function PokemonCard({ pokemon, onSelectedChanged }) {
             .catch(error => console.log(`Error: ${error}`))
 
     }, [])
+    console.log('montou');
 
     return (
         <>
@@ -35,12 +37,9 @@ function PokemonCard({ pokemon, onSelectedChanged }) {
                     <img src={info.sprites.front_default} alt={info.name} />
                     <h3 className="card-title">{capitalizeFirstLetter(info.name)}</h3>
                     {info.types.map((index) => {
-                        console.log(index.type.name);
                         return (
-                            <p className="card-types">
-                                {capitalizeFirstLetter(index.type.name)}
-                            </p>
-                            // <img src={pathToPng[index.type.name]} alt={index.type.name}/>
+                            <img className="type-card"
+                            src={pathToPng[index.type.name]} alt={index.type.name}/>
                         )
                     })}
                 </div>
