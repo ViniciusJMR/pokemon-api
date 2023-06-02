@@ -1,8 +1,10 @@
 import axios from 'axios'
-import { useRef, useEffect, useState} from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { BASE_URL } from '../../../utils/request'
 
 import capitalizeFirstLetter from '../../../utils/stringUtils'
+
+import style from './style.css'
 
 
 function PokemonCard({ pokemon, onSelectedChanged }) {
@@ -28,10 +30,19 @@ function PokemonCard({ pokemon, onSelectedChanged }) {
     return (
         <>
             {'id' in info &&
-                <div onClick={handleClick}>
+                <div className="card" onClick={handleClick}>
 
                     <img src={info.sprites.front_default} alt={info.name} />
-                    <h3>{capitalizeFirstLetter(info.name)}</h3>
+                    <h3 className="card-title">{capitalizeFirstLetter(info.name)}</h3>
+                    {info.types.map((index) => {
+                        console.log(index.type.name);
+                        return (
+                            <p className="card-types">
+                                {capitalizeFirstLetter(index.type.name)}
+                            </p>
+                            // <img src={pathToPng[index.type.name]} alt={index.type.name}/>
+                        )
+                    })}
                 </div>
             }
         </>

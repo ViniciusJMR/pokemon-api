@@ -8,7 +8,7 @@ import { BASE_URL } from "../../utils/request";
 
 
 function PokemonList({ onSelectedChanged }) {
-    const MAX_POKEMON_COUNT = 5
+    const MAX_POKEMON_COUNT = 3
     const dataRef = useRef(false)
 
     const [apiResp, setApiResp] = useState([])
