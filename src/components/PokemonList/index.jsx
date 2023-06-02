@@ -7,8 +7,8 @@ import PokemonCard from "./PokemonCard";
 import { BASE_URL } from "../../utils/request";
 
 
-function PokemonList() {
-    const MAX_POKEMON_COUNT = 151
+function PokemonList({ onSelectedChanged }) {
+    const MAX_POKEMON_COUNT = 5
     const dataRef = useRef(false)
 
     const [apiResp, setApiResp] = useState([])
@@ -33,7 +33,6 @@ function PokemonList() {
         ? apiResp.filter(p => p.name.toLowerCase().includes(search))
         : []
 
-    console.log("montou...")
 
 
     return (
@@ -45,7 +44,10 @@ function PokemonList() {
                         .map(p => {
                             return (
                                 <li key={p.name}>
-                                    <PokemonCard pokemon={p} />
+                                    <PokemonCard
+                                        pokemon={p}
+                                        onSelectedChanged={onSelectedChanged}
+                                    />
                                 </li>
                             )
                         })}
@@ -57,7 +59,10 @@ function PokemonList() {
                         .map(p => {
                             return (
                                 <li key={p.name}>
-                                    <PokemonCard pokemon={p} />
+                                    <PokemonCard
+                                        pokemon={p}
+                                        onSelectedChanged={onSelectedChanged}
+                                    />
                                 </li>
                             )
                         })}

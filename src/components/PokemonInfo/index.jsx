@@ -1,8 +1,8 @@
 
-function PokemonInfo(){
+function PokemonInfo({selected}){
     return (
         <div className="flex-child title">
-            <h1>Info</h1>
+            <h1>Info of {selected.name}</h1>
         </div>
     )
 }
