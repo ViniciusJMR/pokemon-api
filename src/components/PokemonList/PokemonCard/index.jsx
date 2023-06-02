@@ -4,9 +4,24 @@ import { BASE_URL } from '../../../utils/request'
 
 import capitalizeFirstLetter from '../../../utils/stringUtils'
 import pathToPng from '../../../utils/pathToPng'
+import typeColor from '../../../utils/typeColor'
 
 import style from './style.css'
 
+const gradientColors = (types) => {
+    let gradient = "linear-gradient(to right,"
+    console.log(types.length);
+
+    if (types.length > 1) {
+        gradient += types.map((t) => {
+            return " " + typeColor[t.type.name]
+        })
+        gradient += ")"
+    }
+    else
+        gradient += `${typeColor[types[0].type.name]}, ${typeColor[types[0].type.name]})`
+    return gradient
+}
 
 function PokemonCard({ pokemon, onSelectedChanged }) {
     const [info, setInfo] = useState({})
@@ -27,19 +42,26 @@ function PokemonCard({ pokemon, onSelectedChanged }) {
             .catch(error => console.log(`Error: ${error}`))
 
     }, [])
-    console.log('montou');
 
     return (
         <>
             {'id' in info &&
-                <div className="card" onClick={handleClick}>
+                <div
+                    className="card"
+                    onClick={handleClick}
+                    style={{ backgroundImage: gradientColors(info.types) }}
+                >
 
-                    <img src={info.sprites.front_default} alt={info.name} />
+                    <img
+                        className="img-card"
+                        src={info.sprites.front_default}
+                        alt={info.name} />
+
                     <h3 className="card-title">{capitalizeFirstLetter(info.name)}</h3>
                     {info.types.map((index) => {
                         return (
                             <img className="type-card"
-                            src={pathToPng[index.type.name]} alt={index.type.name}/>
+                                src={pathToPng[index.type.name]} alt={index.type.name} />
                         )
                     })}
                 </div>

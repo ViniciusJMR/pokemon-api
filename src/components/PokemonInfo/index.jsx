@@ -11,20 +11,20 @@ function PokemonInfo({ selected }) {
                     <h1>{capitalizeFirstLetter(selected.name)}</h1>
                     <h3>Pokedex index: {selected.id}</h3>
 
-                    <img 
-                    className="img-info"
-                    src={selected.sprites.front_default} 
-                    alt={selected.name} />
-                    <img 
-                    className="img-info"
-                    src={selected.sprites.back_default} 
-                    alt={selected.name} />
-                    <p/>
+                    <img
+                        className="img-info"
+                        src={selected.sprites.front_default}
+                        alt={selected.name} />
+                    <img
+                        className="img-info"
+                        src={selected.sprites.back_default}
+                        alt={selected.name} />
+                    <p />
 
                     {selected.types.map((index) => {
                         return (
                             <img className="type-info"
-                            src={pathToPng[index.type.name]} alt={index.type.name}/>
+                                src={pathToPng[index.type.name]} alt={index.type.name} />
                         )
                     })}
                     {/* <p>{selected.types.map((index) =>{
@@ -39,9 +39,9 @@ function PokemonInfo({ selected }) {
                             return (
                                 <li>
                                     <label htmlFor="base_stat">
-                                        {capitalizeFirstLetter(stats.stat.name)+ ": "}
+                                        {capitalizeFirstLetter(stats.stat.name) + ": "}
                                     </label>
-                                    <progress id="base_stat" value={stats.base_stat} max="255"/>
+                                    <progress id="base_stat" value={stats.base_stat} max="255" />
                                     {" " + stats.base_stat}/255
                                 </li>
                             )
