@@ -1,10 +1,9 @@
 import axios from 'axios'
-import { useRef, useEffect, useState, useContext } from 'react'
+import { useRef, useEffect, useState} from 'react'
 import { BASE_URL } from '../../../utils/request'
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
+import capitalizeFirstLetter from '../../../utils/stringUtils'
+
 
 function PokemonCard({ pokemon, onSelectedChanged }) {
     const [info, setInfo] = useState({})
