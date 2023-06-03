@@ -32,7 +32,7 @@ function PokemonList({ onSelectedChanged }) {
     let filteredResp = search.length > 0
         ? apiResp.filter(p => p.name.toLowerCase().includes(search))
         : []
-
+    
 
 
     return (

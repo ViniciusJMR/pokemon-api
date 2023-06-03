@@ -10,7 +10,6 @@ import style from './style.css'
 
 const gradientColors = (types) => {
     let gradient = "linear-gradient(to right,"
-    console.log(types.length);
 
     if (types.length > 1) {
         gradient += types.map((t) => {
@@ -25,11 +24,13 @@ const gradientColors = (types) => {
 
 function PokemonCard({ pokemon, onSelectedChanged }) {
     const [info, setInfo] = useState({})
+    const [isHover, setIsHover] = useState(false)
     const dataRef = useRef(false)
 
     const handleClick = () => {
         onSelectedChanged(info)
     }
+
 
     useEffect(() => {
         if (dataRef.current) return;
@@ -49,7 +50,11 @@ function PokemonCard({ pokemon, onSelectedChanged }) {
                 <div
                     className="card"
                     onClick={handleClick}
-                    style={{ backgroundImage: gradientColors(info.types) }}
+                    //TODO: Find better way to do this, as it's not working properlly
+                    style={{ backgroundImage: isHover ? gradientColors(info.types): ''}}
+                    // style={{ backgroundImage: gradientColors(info.types)}}
+                    onMouseEnter={() => setIsHover(true)}
+                    onMouseLeave={() => setIsHover(false)}
                 >
 
                     <img
@@ -60,7 +65,7 @@ function PokemonCard({ pokemon, onSelectedChanged }) {
                     <h3 className="card-title">{capitalizeFirstLetter(info.name)}</h3>
                     {info.types.map((index) => {
                         return (
-                            <img className="type-card"
+                            <img className="type-card" key={`${info.name}-${index.type.name}`}
                                 src={pathToPng[index.type.name]} alt={index.type.name} />
                         )
                     })}
