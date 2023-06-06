@@ -9,7 +9,7 @@ import typeColor from '../../../utils/typeColor'
 import style from './style.css'
 
 const gradientColors = (types) => {
-    let gradient = "linear-gradient(to right,"
+    let gradient = "linear-gradient(45deg,"
 
     if (types.length > 1) {
         gradient += types.map((t) => {
