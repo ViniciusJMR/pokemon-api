@@ -9,16 +9,17 @@
   float: left;
   margin-top: 1rem;
   margin-right: 0.3rem;
-  transition: 0.5s;
+  transition: 0.3s;
+  background-color: #efefef;
 }
 
 .card-title {
-  position:relative ;
+  position: relative;
   left: 8em;
   bottom: 7em;
 }
 
-.type-card{
+.type-card {
   width: 20%;
   position: relative;
   left: 9.5rem;
@@ -26,6 +27,11 @@
   margin-right: 3px;
 }
 
-.img-card{
+.img-card {
   width: 50%;
+  position: relative;
+  bottom: 1rem;
+  right: 0.5rem;
+  background-color: white;
+  border-radius: 50%;
 }
