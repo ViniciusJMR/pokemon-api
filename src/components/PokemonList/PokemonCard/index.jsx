@@ -29,6 +29,7 @@ function PokemonCard({ pokemon, onSelectedChanged }) {
 
     const handleClick = () => {
         onSelectedChanged(info)
+        window.scrollTo({top:0, behavior: 'smooth'})
     }
 
 
