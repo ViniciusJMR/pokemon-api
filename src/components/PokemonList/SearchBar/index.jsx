@@ -1,3 +1,4 @@
+import style from './styles.css'
 
 function SearchBar({search, setSearch}) {
 

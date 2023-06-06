@@ -1,0 +1,14 @@
+div input[type=text] {
+    width: 300px;
+    float: center;
+    padding: 6px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 8px;
+    font-size: 17px;
+    margin-left: 13px;
+}
+
+div input[type=text]:hover, div input[type=text]:focus{
+    border: 0.5px solid gray;
+}

@@ -1,4 +1,5 @@
 .title{
+  position: relative;
   text-align: center;
 }
 
@@ -8,7 +9,6 @@
 
 .flex-child {
   flex: 1;
-  border: 2px solid rebeccapurple;
 }
 
 .flex-child:first-child {
