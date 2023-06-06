@@ -1,22 +1,23 @@
+const hexTransparency = '99'
 
 const typeColor = {
-    'bug': '#94de5499',
-    'dark': '#21110399',
-    'dragon': '#5333d499',
-    'electric': '#e3c04099',
-    'fairy': '#f081f099',
-    'fighting': '#4a2f1d99',
-    'fire': '#e03f2d99',
-    'flying': '#7165db99',
-    'ghost': '#1c127399',
-    'grass': '#54de7999',
-    'normal': '#9c9c9c99',
-    'poison': '#4f11c299',
-    'psychic': '#c433c499',
-    'ground': '#c9aa7399',
-    'rock': '#a38a5f99',
-    'steel':'#80808099',
-    'water': '#1a80c999'
+    'bug': '#89970F'+ hexTransparency,
+    'dark': '#443328'+ hexTransparency,
+    'dragon': '#6C56D1'+ hexTransparency,
+    'electric': '#E69C1D'+ hexTransparency,
+    'fairy': '#6C56D1'+ hexTransparency,
+    'fighting': '#6C56D1'+ hexTransparency,
+    'fire': '#D22A04'+ hexTransparency,
+    'flying': '#5D73D4'+ hexTransparency,
+    'ghost': '#484891'+ hexTransparency,
+    'grass': '#399B03'+ hexTransparency,
+    'normal': '#BEB8AC'+ hexTransparency,
+    'poison': '#6B246E'+ hexTransparency,
+    'psychic': '#DC3165'+ hexTransparency,
+    'ground': '#AD8C33'+ hexTransparency,
+    'rock': '#9E863D'+ hexTransparency,
+    'steel':'#9696A6'+ hexTransparency,
+    'water': '#1B78D6'+ hexTransparency
 }
 
 export default typeColor
