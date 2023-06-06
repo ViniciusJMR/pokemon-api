@@ -8,8 +8,8 @@ This app list all generation 1 pokemon with search features, when cliking on pok
 a side-screen will appear revealing more details about chosen pokemon.
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="Home" src="./.github/pokeapi-1.jpg">
-  <img alt="Home" src="./.github/pokeapi-2.jpg">
+  <img alt="Home" src="./.github/pokeapi-1.png">
+  <img alt="Home" src="./.github/pokeapi-2.png">
 </p> 
 
 ### How to run
